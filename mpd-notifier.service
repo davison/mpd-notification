@@ -1,0 +1,14 @@
+[Unit]
+Description=MPD Notification Sender
+After=mpd.target
+
+[Service]
+EnvironmentFile=/etc/default/mpd-notification
+ExecStart=/usr/bin/mpd-notifier
+
+# disallow writing to /usr, /bin, /sbin, ...
+ProtectSystem=yes
+
+[Install]
+WantedBy=multi-user.target
+
