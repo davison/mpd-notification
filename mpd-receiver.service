@@ -1,10 +1,11 @@
 [Unit]
 Description=MPD Notification Receiver
-After=mpd.target
+After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/mpd-notification
 ExecStart=/usr/bin/mpd-receiver
+User=pi
 
 # disallow writing to /usr, /bin, /sbin, ...
 ProtectSystem=yes
